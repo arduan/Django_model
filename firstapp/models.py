@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-from django.db import models
 
 
 class Person(models.Model):
@@ -27,6 +25,7 @@ class Course(models.Model):
 
 
 # Создание модели многие-ко-многим.
+# После миграции создается дополнительня (промежуточная) таблица.
 class Student(models.Model):
     name = models.CharField(max_length=30)
     courses = models.ManyToManyField(Course)
