@@ -14,8 +14,19 @@ class Person(models.Model):
 class Company(models.Model):
     name = models.CharField(max_length=30)
 
+
 # Создание модели один ко многим.
 class Product(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     name = models.CharField(max_length=30)
     price = models.IntegerField()
+
+
+class Course(models.Model):
+    name = models.CharField(max_length=30)
+
+
+# Создание модели многие-ко-многим.
+class Student(models.Model):
+    name = models.CharField(max_length=30)
+    courses = models.ManyToManyField(Course)
